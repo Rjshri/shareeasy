@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :bookings
   resources :products
+  resources :payments
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   get 'home/index'

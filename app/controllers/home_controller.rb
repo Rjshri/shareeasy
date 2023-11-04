@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @product = Product.new  # Initialize a new Product object
   end
 
   def about

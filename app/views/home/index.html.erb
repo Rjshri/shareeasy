@@ -30,8 +30,13 @@
 <br><br>
 <section class="sell">
   <h1 style="text-align:center">Sell</h1>
-  <h2 style="text-align:center"><%= link_to 'Sell', new_product_path(user_id:current_user.id) , class:'btn btn-success',  style:"background-color:#004d99;" %>
-  </h2>
+  <br>
+  <div class="col d-flex justify-content-center">
+    <div class="card border-dark mb-3 center" style="text-align:center;  justify-content: center; width: 50rem; font-family:Georgia">
+      <%= render "products/form", product: @product %>
+<%# <%= link_to 'Sell', new_product_path(user_id:current_user.id) , class:'btn btn-success',  style:"background-color:#004d99;" %>
+</div>
+</div>
 </section>
 <br>
 
