@@ -1,29 +1,34 @@
 <%= render 'partials/header' %>
 
-<div class="container">
-  <h2 class="packages">Buy</h2>
-  <br/>
-  <div class="row row-cols-1 row-cols-md-4 g-4">
-  <% Product.all.each do |product|%>
-  <% unless Booking.exists?(product_id: product.id) %>
-  <div class="col">
-<div class="card">
-  <%# <%= link_to image_tag('mys.jpg',size: "298x250"), class:"card-img"%>
-  <div class="card-body">
-    <h5 class="card-title" style="text-align:center"><%=product.name%></h5>
-    <p class="card-text"><%=product.description%></p>
-        <p class="card-text">Price: <%=product.price%></p>
-    <p class="card-text"><small class="text-body-secondary">Category: <%= product.category%></small></p>
+<section class="buy">
+  <div class="container">
+    <h1 style="text-align:center">Buy</h1>
+    <br/>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+    <% Product.all.each do |product|%>
+    <% unless Booking.exists?(product_id: product.id) %>
+    <div class="col">
+  <div class="card">
+    <%# <%= link_to image_tag('mys.jpg',size: "298x250"), class:"card-img"%>
+    <div class="card-body">
+      <h5 class="card-title" style="text-align:center"><%=product.name%></h5>
+      <p class="card-text"><%=product.description%></p>
+          <p class="card-text">Price: <%=product.price%> INR</p>
+      <p class="card-text"><small class="text-body-secondary">Category: <%= product.category%></small></p>
+    </div>
+      <%# <%=package.id%>
+      <%# <%= link_to 'Book Package', new_slot_path(user_id:current_user.id, id:package.id) , class:'btn btn-success',  style:"background-color:#004d99;" %>
+      <%= link_to 'Buy', new_booking_path(user_id:current_user.id, product_id:product.id) , class:'btn btn-success',  style:"background-color:#004d99;" %>
   </div>
-    <%# <%=package.id%>
-    <%# <%= link_to 'Book Package', new_slot_path(user_id:current_user.id, id:package.id) , class:'btn btn-success',  style:"background-color:#004d99;" %>
-    <%= link_to 'Buy', new_booking_path(user_id:current_user.id, product_id:product.id) , class:'btn btn-success',  style:"background-color:#004d99;" %>
-</div>
-</div>
-<%end%>
-<%end%>
-</div>
-</div>
+  </div>
+  <%end%>
+  <%end%>
+  </div>
+  </div>
+</section>
 
-<h2 style="text-align:center"><%= link_to 'Sell', new_product_path(user_id:current_user.id) , class:'btn btn-success',  style:"background-color:#004d99;" %>
-</h2>
+<section class="sell">
+  <h1 style="text-align:center">Sell</h1>
+  <h2 style="text-align:center"><%= link_to 'Sell', new_product_path(user_id:current_user.id) , class:'btn btn-success',  style:"background-color:#004d99;" %>
+  </h2>
+</section>

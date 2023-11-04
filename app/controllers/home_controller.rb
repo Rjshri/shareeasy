@@ -4,4 +4,8 @@ class HomeController < ApplicationController
 
   def about
   end
+
+  def myproducts
+    @user = User.find(params[:id])
+  end
 end
