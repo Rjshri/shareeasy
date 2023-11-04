@@ -18,7 +18,7 @@
 
   <div>
   <%= form.label :description, style: "display: block" %>
-  <%= form.text_area :description %>
+  <%= form.text_area :description , style: "width: 600px"%>
 </div>
 
 <div>
@@ -28,13 +28,14 @@
 
 <div>
   <%= form.label :category, style: "display: block" %>
-  <%= form.text_field :category %>
+  <%= form.select :category, options_for_select(['Books', 'Furniture', 'Gadgets', 'Vehicles', 'Others']) %>
 </div>
 
-<%= form.hidden_field :user_id, value: current_user.id %>
 
+<%= form.hidden_field :user_id, value: current_user.id %>
+<br>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Confirm Sell" %>
   </div>
 <% end %>
