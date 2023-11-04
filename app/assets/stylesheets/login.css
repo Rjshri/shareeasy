@@ -9,7 +9,7 @@ body {
   font-family: Open Sans;
 }
 body {
-  background: hsl(199, 100%, 72%);
+  /* background: hsl(199, 100%, 72%); */
   background-size: 100% 100%;
   background-image: url('assets/bg1.jpg');
 

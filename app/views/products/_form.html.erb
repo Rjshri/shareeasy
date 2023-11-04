@@ -15,26 +15,27 @@
   <%= form.label :name, style: "display: block" %>
   <%= form.text_field :name %>
 </div>
-
+<br>
+<div>
+   <%= form.label :image %>
+   <%= form.file_field :image %>
+ </div>
+<br>
   <div>
   <%= form.label :description, style: "display: block" %>
   <%= form.text_area :description , style: "width: 600px"%>
 </div>
-
+<br>
 <div>
   <%= form.label :price, style: "display: block" %>
   <%= form.number_field :price %>
 </div>
-
+<br>
 <div>
   <%= form.label :category, style: "display: block" %>
   <%= form.select :category, options_for_select(['Books', 'Furniture', 'Gadgets', 'Vehicles', 'Others']) %>
 </div>
 
-<div class="field">
-   <%= form.label :image %>
-   <%= form.file_field :image %>
- </div>
 
 <%= form.hidden_field :user_id, value: current_user.id %>
 <br>
@@ -42,4 +43,5 @@
   <div>
     <%= form.submit "Confirm Sell" %>
   </div>
+  <br>
 <% end %>

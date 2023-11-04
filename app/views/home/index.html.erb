@@ -1,12 +1,12 @@
 <%= render 'partials/header' %>
-
+<br>
 <section class="buy">
   <div class="container">
     <h1 style="text-align:center">Buy</h1>
     <br/>
     <div class="row row-cols-1 row-cols-md-4 g-4">
     <% Product.all.each do |product|%>
-    <%# <% unless Booking.exists?(product_id: product.id) %>
+    <% unless Booking.exists?(product_id: product.id) %>
     <div class="col">
   <div class="card">
     <%# <%= link_to image_tag('mys.jpg',size: "298x250"), class:"card-img"%>
@@ -22,7 +22,7 @@
       <%= link_to 'Buy', new_booking_path(user_id:current_user.id, product_id:product.id) , class:'btn btn-success',  style:"background-color:#004d99;" %>
   </div>
   </div>
-  <%# <%end%>
+  <%end%>
   <%end%>
   </div>
   </div>
@@ -33,3 +33,25 @@
   <h2 style="text-align:center"><%= link_to 'Sell', new_product_path(user_id:current_user.id) , class:'btn btn-success',  style:"background-color:#004d99;" %>
   </h2>
 </section>
+<br>
+
+<!-- Bootstrap footer -->
+  <footer class="bg-dark text-light p-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Footer Content</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="col-md-6">
+          <h3>Contact Us</h3>
+          <address>
+            <p>123 Main Street</p>
+            <p>City, State ZIP Code</p>
+            <p>Email: example@example.com</p>
+            <p>Phone: (123) 456-7890</p>
+          </address>
+        </div>
+      </div>
+    </div>
+  </footer>
