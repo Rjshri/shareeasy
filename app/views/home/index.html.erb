@@ -10,6 +10,7 @@
     <div class="col">
   <div class="card">
     <%# <%= link_to image_tag('mys.jpg',size: "298x250"), class:"card-img"%>
+    <%= image_tag product.image if product.image.attached? %>
     <div class="card-body">
       <h5 class="card-title" style="text-align:center"><%=product.name%></h5>
       <p class="card-text"><%=product.description%></p>
