@@ -18,6 +18,8 @@ gem 'devise', '~> 4.9', '>= 4.9.2'
 gem 'rails_admin', '~> 3.0'
 #rails admin
 
+gem 'stripe'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 

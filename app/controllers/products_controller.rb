@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to product_url(@product), notice: "Product was successfully created." }
+        format.html { redirect_to home_index_url(@product), notice: "Product was successfully created." }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -67,6 +67,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:description, :name, :category, :price, :user_id, references: [])
+      params.require(:product).permit(:description, :name, :category, :price, :user_id, :image, references: [])
     end
 end

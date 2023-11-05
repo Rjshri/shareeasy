@@ -1,9 +1,12 @@
-<h1>New product</h1>
-
-<%= render "form", product: @product %>
-
+<h1 style="text-align:center">Sell Product</h1>
 <br>
+<div class="col d-flex justify-content-center">
+<div class="card border-dark mb-3 center" style="text-align:center;  justify-content: center; width: 50rem; font-family:Georgia">
+  <%= render "form", product: @product %>
+</div>
+<br>
+</div
 
 <div>
-  <%= link_to "Back to products", products_path %>
+  <%= link_to "Back", home_index_path, class:"btn btn-primary" %>
 </div>
