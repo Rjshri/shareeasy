@@ -1,4 +1,4 @@
-class AddReferencesToBookingsAndProducts < ActiveRecord::Migration[7.0]
+class AddReferencesToBookingsAndProducts < ActiveRecord::Migration[6.1]
   def change
     add_reference :bookings, :user, foreign_key: true
     add_reference :bookings, :product, foreign_key: true

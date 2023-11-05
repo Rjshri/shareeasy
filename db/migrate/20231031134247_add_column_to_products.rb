@@ -1,4 +1,4 @@
-class AddColumnToProducts < ActiveRecord::Migration[7.0]
+class AddColumnToProducts < ActiveRecord::Migration[6.1]
   def change
     add_column :products, :name, :string
     add_column :products, :description, :text
