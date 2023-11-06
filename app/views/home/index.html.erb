@@ -1,9 +1,49 @@
 <%= render 'partials/header' %>
 <br>
+
 <section class="buy">
   <div class="container">
-    <h1 style="text-align:center">Buy</h1>
     <br/>
+    <h1>Categories</h1>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+          <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" style="text-align:center">Books</h5>
+          </div>
+          <%= link_to 'Explore', home_index_path , class:'btn btn-primary' %>
+        </div>
+        </div>
+        <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" style="text-align:center">Furniture</h5>
+          </div>
+          <%= link_to 'Explore', home_index_path , class:'btn btn-primary' %>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" style="text-align:center">Cosmetics</h5>
+          </div>
+          <%= link_to 'Explore', home_index_path , class:'btn btn-primary' %>
+        </div>
+        </div>
+        <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" style="text-align:center">Others</h5>
+          </div>
+          <%= link_to 'Explore', home_index_path , class:'btn btn-primary' %>
+        </div>
+        </div>
+</div>
+
+<br>
+<h1 style="text-align:center">Buy</h1>
+
+
     <div class="row row-cols-1 row-cols-md-4 g-4">
     <% Product.all.each do |product|%>
     <% unless Booking.exists?(product_id: product.id) %>
@@ -28,16 +68,9 @@
   </div>
 </section>
 <br><br>
-<section class="sell">
-  <h1 style="text-align:center">Sell</h1>
-  <br>
-  <div class="col d-flex justify-content-center">
-    <div class="card border-dark mb-3 center" style="text-align:center;  justify-content: center; width: 50rem; font-family:Georgia">
-      <%= render "products/form", product: @product %>
+
+      <%# <%= render "products/form", product: @product %>
 <%# <%= link_to 'Sell', new_product_path(user_id:current_user.id) , class:'btn btn-success',  style:"background-color:#004d99;" %>
-</div>
-</div>
-</section>
 <br>
 
 <!-- Bootstrap footer -->

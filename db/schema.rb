@@ -56,17 +56,19 @@ ActiveRecord::Schema.define(version: 2023_11_04_162020) do
     t.text "description"
     t.integer "price"
     t.string "category"
+    t.integer "users_id"
     t.integer "user_id"
     t.string "image"
     t.index ["user_id"], name: "index_products_on_user_id"
+    t.index ["users_id"], name: "index_products_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.datetime "reset_password_sent_at", precision: 6
+    t.datetime "remember_created_at", precision: 6
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -78,4 +80,5 @@ ActiveRecord::Schema.define(version: 2023_11_04_162020) do
   add_foreign_key "bookings", "products"
   add_foreign_key "bookings", "users"
   add_foreign_key "products", "users"
+  add_foreign_key "products", "users", column: "users_id"
 end
