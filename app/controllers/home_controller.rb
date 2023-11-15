@@ -7,6 +7,10 @@ class HomeController < ApplicationController
   def about
   end
 
+  def explore
+    @category = params[:category]
+  end
+
   def myproducts
     @user = User.find(params[:id])
   end
