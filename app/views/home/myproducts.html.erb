@@ -1,0 +1,30 @@
+<h1 class="myslots-heading" style="text-align:center">My Products</h1>
+<br/><br/>
+<!-- <h2 class="myslots-heading" style="text-align:center">Bought</h2> -->
+<br/><br/>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+<% @user.bookings.each do |user_booking| %>
+<div class="container" >
+
+    <div class="col">
+    <div class="card border-dark mb-3 center" style="max-width: 40rem;margin:20px">
+      <div class="card-header" style="text-align:center; background-color:	#004d99; color: #FFFFFF" >Booking id: <%= user_booking.id %> </div>
+      <div class="card-body" style="text-align:center">
+        <h3 class="card-title"><%= user_booking.product.name %></h3>
+        <p class="card-text">Description:
+        <%= user_booking.product.description %></p>
+        <br/>
+        <p>Price : <%= user_booking.product.price %></p>
+        <%# <%= link_to "Fill a feedback", new_feedback_path(user_id:current_user.id, id:user_slot.trippackage.company.id), class:'btn btn-success'%>
+      </div>
+      </div>
+    </div>
+    </div>
+
+<br/>
+<% end %>
+</div>
+
+<div>
+  <%= link_to "Back", home_index_path, class:'btn btn-primary'%>
+</div>

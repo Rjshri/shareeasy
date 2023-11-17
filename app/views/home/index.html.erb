@@ -1,0 +1,95 @@
+<%= render 'partials/header' %>
+<br>
+
+<section class="buy">
+  <div class="container">
+    <br/>
+    <h1>Categories</h1>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+          <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" style="text-align:center">Books</h5>
+          </div>
+          <%= link_to 'Explore', home_explore_path(category:'Books') , class:'btn btn-primary' %>
+        </div>
+        </div>
+        <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" style="text-align:center">Furniture</h5>
+          </div>
+          <%= link_to 'Explore', home_explore_path(category:'Furniture') , class:'btn btn-primary' %>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" style="text-align:center">Cosmetics</h5>
+          </div>
+          <%= link_to 'Explore', home_explore_path(category:'Cosmetics') , class:'btn btn-primary' %>
+        </div>
+        </div>
+        <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" style="text-align:center">Others</h5>
+          </div>
+          <%= link_to 'Explore', home_explore_path(category:'Others') , class:'btn btn-primary' %>
+        </div>
+        </div>
+</div>
+
+<br>
+<h1 style="text-align:center">Buy</h1>
+
+
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+    <% Product.all.each do |product|%>
+    <% unless Booking.exists?(product_id: product.id) %>
+    <div class="col">
+  <div class="card">
+    <%# <%= link_to image_tag('mys.jpg',size: "298x250"), class:"card-img"%>
+    <%= image_tag product.image if product.image.attached? %>
+    <div class="card-body">
+      <h5 class="card-title" style="text-align:center"><%=product.name%></h5>
+      <p class="card-text"><%=product.description%></p>
+          <p class="card-text">Price: <%=product.price%> INR</p>
+      <p class="card-text"><small class="text-body-secondary">Category: <%= product.category%></small></p>
+    </div>
+      <%# <%=package.id%>
+      <%# <%= link_to 'Book Package', new_slot_path(user_id:current_user.id, id:package.id) , class:'btn btn-success',  style:"background-color:#004d99;" %>
+      <%= link_to 'Buy', new_booking_path(user_id:current_user.id, product_id:product.id) , class:'btn btn-success',  style:"background-color:#004d99;" %>
+  </div>
+  </div>
+  <%end%>
+  <%end%>
+  </div>
+  </div>
+</section>
+<br><br>
+
+      <%# <%= render "products/form", product: @product %>
+<%# <%= link_to 'Sell', new_product_path(user_id:current_user.id) , class:'btn btn-success',  style:"background-color:#004d99;" %>
+<br>
+
+<!-- Bootstrap footer -->
+  <footer class="bg-dark text-light p-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Footer Content</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="col-md-6">
+          <h3>Contact Us</h3>
+          <address>
+            <p>123 Main Street</p>
+            <p>City, State ZIP Code</p>
+            <p>Email: example@example.com</p>
+            <p>Phone: (123) 456-7890</p>
+          </address>
+        </div>
+      </div>
+    </div>
+  </footer>
