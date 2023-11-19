@@ -81,3 +81,36 @@ background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);
   width:100%;
   transition:800ms ease all;
 }
+
+/* form drag drop box*/
+
+.drag-and-drop-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px; /* Set the height as needed */
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  margin-left:10%;
+  margin-right:10%;
+}
+
+.drag-and-drop-label {
+  cursor: pointer;
+  text-align: center;
+  size: 100%;
+}
+
+.dotted-box {
+  padding: 90px;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hidden-input {
+  display: none;
+}
