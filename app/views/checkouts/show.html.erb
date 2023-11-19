@@ -154,17 +154,17 @@
             </div>
 
 
-
-
-
            <center>
             <%= render partial: 'pay/stripe/checkout_button',locals: {
 
                 session:@checkout_session,
                 title: "Checkout"
-              } %>
+              }, id: "checkoutButton" %>
             </center>
+
         </form>
+
+
       </div>
     </div>
   </main>
@@ -178,6 +178,13 @@
     </ul>
   </footer>
 </div>
+
+<script>
+
+
+
+</script>
+
 <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     <script src="checkout.js"></script>
