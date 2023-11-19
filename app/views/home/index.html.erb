@@ -83,7 +83,13 @@
     </div>
       <%# <%=package.id%>
       <%# <%= link_to 'Book Package', new_slot_path(user_id:current_user.id, id:package.id) , class:'btn btn-success',  style:"background-color:#004d99;" %>
+      <%# <% if product.image.attached? %>
+<%#  <% @link = rails_blob_path(product.image, only_path: true) %>
+<%#  <%= 'https://localhost:3000' + @link %>
+<%#<% end %>
+
       <%= link_to 'Buy', new_booking_path(user_id:current_user.id, product_id:product.id) , class:'btn btn-success',  style:"background-color:#004d99;" %>
+      <%= link_to 'Checkout', checkout_path(user_id:current_user.id, product_id:product.id), class:"btn btn-success" %>
   </div>
   </div>
   <%end%>

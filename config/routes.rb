@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   get 'home/about'
   get 'home/myproducts'
   get 'home/explore'
+
+  get 'checkout', to: 'checkouts#show'
+  get 'checkout/success', to: 'checkouts#success'
+  get 'billing', to: 'billing#show'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

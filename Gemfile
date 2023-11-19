@@ -18,7 +18,7 @@ gem 'devise', '~> 4.9', '>= 4.9.2'
 gem 'rails_admin', '~> 3.0'
 #rails admin
 
-gem 'stripe'
+gem 'stripe' , '~> 9'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -82,3 +82,5 @@ group :test do
 
 end
 gem "sassc-rails"
+
+gem "pay", "~> 6.8"
