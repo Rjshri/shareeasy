@@ -1,3 +1,7 @@
+<%= render 'partials/header' %>
+<%= stylesheet_link_tag "home", "data-turbo-track": "reload" %>
+
+<br>
 <h1 style="text-align:center">Sell Product</h1>
 <br>
 <div class="col d-flex justify-content-center">
@@ -8,5 +12,7 @@
 </div
 
 <div>
-  <%= link_to "Back", home_index_path, class:"btn btn-primary" %>
+  <%= link_to "Back", home_index_path, class:"btn" %>
 </div>
+
+<%= render 'partials/footer' %>

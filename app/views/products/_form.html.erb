@@ -12,14 +12,21 @@
   <% end %>
 
   <div>
-  <%= form.label :name, style: "display: block" %>
+  <%= form.label "Product Name", style: "display: block" %>
   <%= form.text_field :name %>
 </div>
 <br>
 <div>
    <%= form.label :image %>
-   <%= form.file_field :image %>
+   <%= form.file_field :image, id: 'image-input' %>
  </div>
+<br>
+
+
+<div id="preview" style="display:none">
+  <img id="image-preview" src="#" alt="Image Preview" style="max-width:80%; max-height:30%">
+</div>
+
 <br>
   <div>
   <%= form.label :description, style: "display: block" %>
@@ -27,14 +34,14 @@
 </div>
 <br>
 <div>
-  <%= form.label :price, style: "display: block" %>
+  <%= form.label "Price in Rupees", style: "display: block" %>
   <%= form.number_field :price %>
 </div>
 <br>
 <div>
 
   <%= form.label :category, style: "display: block" %>
-    <%= form.select :category, ['Cosmetics', 'Gaming', 'Household', 'Electronics','Hardware', 'Furniture', 'Study Material'] %>
+    <%= form.select :category, ['Cosmetics', 'Gaming', 'Household', 'Electronics','Hardware', 'Furniture', 'Study Material', 'Others'] %>
 </div>
 
 
@@ -46,3 +53,31 @@
   </div>
   <br>
 <% end %>
+
+
+<script>
+  $(document).ready(function() {
+    // Listen for changes on the file input
+    $('#image-input').on('change', function(e) {
+      // Get the selected file
+      var file = e.target.files[0];
+
+      // Check if a file is selected
+      if (file) {
+        // Create a FileReader
+        var reader = new FileReader();
+
+        // Set up the FileReader to display the image preview when it's loaded
+        reader.onload = function(e) {
+          $('#image-preview').attr('src', e.target.result);
+          $('#preview').show(); // Show the preview container
+        };
+
+        // Read the selected file as a data URL
+        reader.readAsDataURL(file);
+      } else {
+        $('#preview').hide(); // Hide the preview container if no file is selected
+      }
+    });
+  });
+</script>
