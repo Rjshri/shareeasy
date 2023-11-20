@@ -26,4 +26,10 @@ end
   devise_scope :user do
   root 'devise/sessions#new'
 end
+
+resources :users do
+  member do
+    get :confirm_email
+  end
+end
 end
