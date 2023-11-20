@@ -16,9 +16,9 @@
                       <% @user = User.find(current_user.id) %>
 
                     <% if @user.profile.attached? %>
-                      <%= image_tag @user.profile, style: "height:250px;border-radius: 50%;" %>
+                      <%= image_tag @user.profile, style: "height:300px;width:300px;border-radius: 50%;" %>
                     <% else %>
-                      <%= image_tag "book.jpg", style: "height:250px;border-radius: 50%;" %>
+                      <%= image_tag "default.jpg", style: "height:100%;border-radius: 50%;" %>
                     <% end %>
                     </div>
                     <br>

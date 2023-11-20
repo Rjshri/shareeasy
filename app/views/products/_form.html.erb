@@ -17,7 +17,7 @@
 </div>
 <br>
 <div id="drag-and-drop-container" class="drag-and-drop-container">
-  <%= form.file_field :image, id: 'image-input', class: 'hidden-input', onchange: 'previewImage(this)' %>
+  <%= form.file_field :image, id: 'image-input', class: 'hidden-input', onchange: 'previewImage(this)', required:true %>
   <label for="image-input" class="drag-and-drop-label">
     <div class="dotted-box" id="image-preview">
       <span id="uploadText">Click to Upload Image</span>

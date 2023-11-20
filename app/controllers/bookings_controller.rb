@@ -13,8 +13,14 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = Booking.new
-    @user=User.find(params[:user_id])
+    @user = User.find(params[:user_id])
     @product = Product.find(params[:product_id])
+    @booking.user_id = @user.id
+    @booking.product_id = @product.id
+    if @booking.save
+     flash[:notice] = "Booking was successfully created."
+     redirect_to home_index_url
+    end
   end
 
   # GET /bookings/1/edit
