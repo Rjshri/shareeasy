@@ -11,18 +11,20 @@ background-color: #E6E6E6;
 
 .center-btn {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+}
+
+.img-border {
+  border-radius: 10px!important;
 }
 
 
 
 .custom-btn {
-  width: 130px;
-  height: 40px;
   color: #fff;
   border-radius: 5px;
-  padding: 10px 25px;
+  padding: 8px 18px;
   font-family: 'Lato', sans-serif;
   font-weight: 500;
   background: transparent;

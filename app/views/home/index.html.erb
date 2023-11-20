@@ -1,106 +1,91 @@
 <%= render 'partials/header' %>
 <%= stylesheet_link_tag "home", "data-turbo-track": "reload" %>
 
-<br>
-<section class="buy">
-  <div class="container">
-    <br/>
-    <h1 style="text-align:center">Categories</h1>
-    <br>
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-          <div class="col">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title" style="text-align:center">Study Material</h5>
-          </div>
-          <%= link_to image_tag('book.jpg',width:"100%"), class:"card-img"%>
-          <span class="center-btn">
-            <%= link_to 'Explore', home_explore_path(category: 'Study Material'), class: 'custom-btn btn-5' %>
-          </span>
+<section class="buy my-5">
+  <div class="container-lg">
 
+    <h1 class="text-center fw-bold">Categories</h1>
 
+    <div style="display:flex; flex-wrap:wrap; gap:1em; justify-content:center">
+
+      <div class="card" style="width: 15rem;">
+        <div style="width:100%; height:130px">
+          <img src="https://images.pexels.com/photos/5905522/pexels-photo-5905522.jpeg?auto=compress&cs=tinysrgb&w=1600" class="card-img-top" alt="..." style="width:100%; height:100%; object-fit:cover">
         </div>
-        </div>
-        <div class="col">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title" style="text-align:center">Furniture</h5>
-          </div>
-          <%= link_to image_tag('furniture.jpg',width:"100%"), class:"card-img"%>
+        <div class="card-body">
+          <h5 class="card-title">Study Material</h5>
           <span class="center-btn">
-          <%= link_to 'Explore', home_explore_path(category:'Furniture') , class:'custom-btn btn-5' %>
+            <%= link_to 'Explore', home_explore_path(category: 'Study Material'), class: 'btn btn-success' %>
           </span>
         </div>
       </div>
-      <div class="col">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title" style="text-align:center">Cosmetics</h5>
-          </div>
-          <%= link_to image_tag('cosmetics.jpg',width:"100%"), class:"card-img"%>
+
+      <div class="card" style="width: 15rem;">
+        <div style="width:100%; height:130px">
+          <img src="https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=1600" class="card-img-top" alt="..." style="width:100%; height:100%; object-fit:cover">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Furniture</h5>
           <span class="center-btn">
-          <%= link_to 'Explore', home_explore_path(category:'Cosmetics') , class:'custom-btn btn-5' %>
+          <%= link_to 'Explore', home_explore_path(category:'Furniture') , class:'btn btn-success' %>
           </span>
         </div>
+      </div>
+
+      <div class="card" style="width: 15rem;">
+        <div style="width:100%; height:130px">
+          <img src="https://images.pexels.com/photos/3018845/pexels-photo-3018845.jpeg?auto=compress&cs=tinysrgb&w=1600" class="card-img-top" alt="..." style="width:100%; height:100%; object-fit:cover">
         </div>
-        <div class="col">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title" style="text-align:center">Electronics</h5>
-          </div>
-          <%= link_to image_tag('electronics.jpg',width:"100%"), class:"card-img"%>
+        <div class="card-body">
+          <h5 class="card-title">Cosmetics</h5>
           <span class="center-btn">
-          <%= link_to 'Explore', home_explore_path(category:'Electronics') , class:'custom-btn btn-5' %>
+          <%= link_to 'Explore', home_explore_path(category:'Cosmetics') , class:'btn btn-success' %>
           </span>
         </div>
+      </div>
+
+      <div class="card" style="width: 15rem;">
+        <div style="width:100%; height:130px">
+          <img src="https://images.pexels.com/photos/682933/pexels-photo-682933.jpeg?auto=compress&cs=tinysrgb&w=1600" class="card-img-top" alt="..." style="width:100%; height:100%; object-fit:cover">
         </div>
-</div>
+        <div class="card-body">
+          <h5 class="card-title">Electronics</h5>
+          <span class="center-btn">
+          <%= link_to 'Explore', home_explore_path(category:'Electronics') , class:'btn btn-success' %>
+          </span>
+        </div>
+      </div>
 
-<br>
-<h1 style="text-align:center">Buy</h1>
-<br>
-
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-    <% Product.all.each do |product|%>
-    <% unless Booking.exists?(product_id: product.id) %>
-    <div class="col">
-  <div class="card">
-    <%# <%= link_to image_tag('mys.jpg',size: "298x250"), class:"card-img"%>
-    <%= image_tag product.image if product.image.attached?%>
-
-    <%# default image %>
-    <%# <% if product.image.attached? %>
-  <%# <%= image_tag product.image %>
-<%# <% else %>
-  <%# <%= image_tag "book.jpg" %>
-<%# <% end %>
-
-    <div class="card-body">
-      <h5 class="card-title" style="text-align:center"><%=product.name%></h5>
-      <p class="card-text"><%=product.description%></p>
-          <p class="card-text">Price: <%=product.price%> INR</p>
-      <p class="card-text"><small class="text-body-secondary">Category: <%= product.category%></small></p>
+      </div>
     </div>
-      <%# <%=package.id%>
-      <%# <%= link_to 'Book Package', new_slot_path(user_id:current_user.id, id:package.id) , class:'btn btn-success',  style:"background-color:#004d99;" %>
-      <%# <% if product.image.attached? %>
-<%#  <% @link = rails_blob_path(product.image, only_path: true) %>
-<%#  <%= 'https://localhost:3000' + @link %>
-<%#<% end %>
 
-      <%= link_to 'Buy', new_booking_path(user_id:current_user.id, product_id:product.id) , class:'btn btn-success',  style:"background-color:#004d99;" %>
-      <%= link_to 'Checkout', checkout_path(user_id:current_user.id, product_id:product.id), class:"btn btn-success" %>
+
+    <h1 style="text-align:center" class="fw-bold mt-3">Buy</h1>
+
+    <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:2em">
+
+    <% Product.all.each do |product|%>
+      <% unless Booking.exists?(product_id: product.id) %>
+          <div class="card" style="width: 18rem;">
+            <%= image_tag product.image, class:'card-img-top' if product.image.attached? %>
+            <div class="card-body">
+              <h5 class="card-title"><%=product.name%></h5>
+              <p class="card-text"><%=product.description%>.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><span class="text-secondary" style="text-transform:capitalize">Price:</span> <%=product.price%> INR</li>
+              <li class="list-group-item"><span class="text-secondary">Category:</span> <%= product.category%></li>
+            </ul>
+            <div class="card-body" style="display:flex; justify-content:flex-end">
+              <%= link_to 'Checkout', checkout_path(user_id:current_user.id, product_id:product.id), class:"btn btn-outline-success" %>
+              <%= link_to 'Buy', new_booking_path(user_id:current_user.id, product_id:product.id) , class:'btn btn-primary mx-2' %>
+            </div>
+          </div>
+      <%end%>
+    <%end%>
+
   </div>
-  </div>
-  <%end%>
-  <%end%>
-  </div>
-  </div>
+
 </section>
-<br><br>
-
-      <%# <%= render "products/form", product: @product %>
-<%# <%= link_to 'Sell', new_product_path(user_id:current_user.id) , class:'btn btn-success',  style:"background-color:#004d99;" %>
-<br>
 
 <%= render 'partials/footer' %>

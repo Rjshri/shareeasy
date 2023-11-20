@@ -1,0 +1,15 @@
+#log_out2 {
+  display: none;
+}
+
+@media only screen and (max-width: 992px) {
+  /* Styles for screens with a maximum width of 600 pixels or less */
+  /* You can replace 600px with your desired maximum width */
+  /* Add your styles here */
+  #log_out1 {
+    display: none;
+  }
+  #log_out2 {
+    display: block;
+  }
+}
