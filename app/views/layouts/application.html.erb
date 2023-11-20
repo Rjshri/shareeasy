@@ -10,9 +10,21 @@
     <%= csp_meta_tag %>
     <script src="https://js.stripe.com/v3"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+
+    <style>
+      * {
+        font-family: 'Rubik', sans-serif;
+      }
+    </style>
+
     <% if controller_name == 'home' && action_name == 'about' %>
-  <%= stylesheet_link_tag 'https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css' %>
-<% end %>
+      <%= stylesheet_link_tag 'https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css' %>
+    <% end %>
+    
   </head>
   <body>
     <% if notice.present? %>
