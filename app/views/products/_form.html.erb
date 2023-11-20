@@ -16,16 +16,16 @@
   <%= form.text_field :name %>
 </div>
 <br>
-<div>
-   <%= form.label :image %>
-   <%= form.file_field :image, id: 'image-input' %>
- </div>
-<br>
-
-
-<div id="preview" style="display:none">
-  <img id="image-preview" src="#" alt="Image Preview" style="max-width:80%; max-height:30%">
+<div id="drag-and-drop-container" class="drag-and-drop-container">
+  <%= form.file_field :image, id: 'image-input', class: 'hidden-input', onchange: 'previewImage(this)' %>
+  <label for="image-input" class="drag-and-drop-label">
+    <div class="dotted-box" id="image-preview">
+      <span id="uploadText">Click to Upload Image</span>
+      <img id="image-preview-img" src="#" alt="Image Preview" style="display:none;">
+    </div>
+  </label>
 </div>
+
 
 <br>
   <div>
@@ -56,6 +56,25 @@
 
 
 <script>
+  function previewImage(input) {
+    var preview = document.getElementById('image-preview-img');
+    var file = input.files[0];
+    var reader = new FileReader();
+
+    reader.onloadend = function () {
+      preview.src = reader.result;
+      preview.style.display = 'block';
+    }
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      preview.src = '#';
+      preview.style.display = 'none';
+    }
+  }
+</script>
+<!-- <script>
   $(document).ready(function() {
     // Listen for changes on the file input
     $('#image-input').on('change', function(e) {
@@ -80,4 +99,10 @@
       }
     });
   });
+</script> -->
+
+<script>
+
+
+
 </script>
