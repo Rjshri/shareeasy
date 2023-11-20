@@ -12,6 +12,7 @@ body {
   /* background: hsl(199, 100%, 72%); */
   background-size: 100% 100%;
   background-image: url('assets/bg1.jpg');
+  background-size: cover;
 
 }
 
@@ -98,19 +99,10 @@ Form
 Signup
 --------------------*/
 .signup {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  width: 350px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 3px 25px hsla(0, 0, 0, 0.2);
-  overflow: hidden;
-  display: flex;
-  padding: 20px;
-  border: 3px solid;
+  background-color: antiquewhite;
+  width: 50%;
+  margin: 2em auto;
+  padding: 2rem;
 }
 
 
@@ -134,5 +126,11 @@ Signup
     content: '\f023';
   }
 
+/* Styles for devices with a maximum width of 600 pixels or less */
+@media only screen and (max-width: 516px) {
+  .signup {
+    width: 96%;
+  }
 
+  /* Add more styles as needed for smaller screens */
 }
