@@ -1,62 +1,103 @@
 <%= render 'partials/header' %>
 <%= stylesheet_link_tag "home", "data-turbo-track": "reload" %>
-
-
+<br>
 <h2 style="text-align:center">Edit <%= resource_name.to_s.humanize %></h2>
-<div class="col d-flex justify-content-center">
-<div class="card border-dark mb-3 center" style="text-align:center;  justify-content: center; width: 50rem; font-family:Georgia; padding: 1em">
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-<% @user = User.find(current_user.id) %>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-4 pb-5">
+            <!-- Account Sidebar-->
+            <div class="author-card pb-3">
+                <div class="author-card-cover" style="background-image: url(https://bootdey.com/img/Content/flores-amarillas-wallpaper.jpeg);"></div>
+                <div class="author-card-profile">
+                    <div class="author-card-avatar">
+                      <% @user = User.find(current_user.id) %>
 
-<% if @user.profile.attached? %>
-  <%= image_tag @user.profile, style: "height:200px;border-radius: 50%;" %>
-<% else %>
-  <%= image_tag "book.jpg", style: "height:200px;border-radius: 50%;" %>
-<% end %>
-<br>
-<div class="field">
-  <%= f.label "Edit Profile" %>
-  <%= f.file_field :profile %>
-  </div>
-<%= @user.username%>
+                    <% if @user.profile.attached? %>
+                      <%= image_tag @user.profile, style: "height:250px;border-radius: 50%;" %>
+                    <% else %>
+                      <%= image_tag "book.jpg", style: "height:250px;border-radius: 50%;" %>
+                    <% end %>
+                    </div>
+                    <br>
+                    <div class="field">
+                      <%= f.label "Edit Picture" %>
+                      <%= f.file_field :profile %>
+                      </div>
+                      <br>
+                    <div class="author-card-details">
+                        <h5 class="author-card-name text-lg" style="text-align:center"><%= @user.username%></h5>
+                    </div>
+                </div>
+            </div>
 
-<div class="field">
-  <%= f.label "Phone Number:" %>
-  <%= @user.number %>
+        </div>
+        <!-- Profile Settings-->
+        <div class="col-lg-8 pb-5">
+            <form class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="account-fn">Name</label>
+                          <%= text_field_tag :number, @user.username, class: "form-control", disabled: true  %>
+                    </div>
+                </div>
+                <!-- <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="account-ln">Last Name</label>
+                        <input class="form-control" type="text" id="account-ln" value="Adams" required="">
+                    </div>
+                </div> -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <%= f.label "Email Address" %><br />
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", disabled: true  %>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="account-phone">Phone Number</label>
+                        <%= text_field_tag :number, @user.number, class: "form-control" %>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+                      <%= f.password_field :password, autocomplete: "new-password", class: "form-control"  %>
+                      <% if @minimum_password_length %>
+                        <em><%= @minimum_password_length %> characters minimum</em>
+                      <% end %>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="field">
+                        <%= f.label :password_confirmation %><br />
+                        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="field">
+                        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control"  %>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <hr class="mt-2 mb-3">
+                      <%= f.submit "Update", class:"btn btn-style-1 btn-primary" %>
+                      <%= link_to "Back", :back, class:"btn btn-secondary" %>
+
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
   <div class="actions">
-    <%= f.submit "Update" %>
   </div>
 <% end %>
 
@@ -65,4 +106,3 @@
 <%# <!-- <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
 </div>
 </div>
-<%= link_to "Back", :back, class:"btn btn-secondary" %>
