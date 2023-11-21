@@ -99,10 +99,12 @@ Form
 Signup
 --------------------*/
 .signup {
-  background-color: antiquewhite;
+  background-color: white;
   width: 50%;
   margin: 2em auto;
   padding: 2rem;
+  border: black solid;
+  border-radius: 3%;
 }
 
 

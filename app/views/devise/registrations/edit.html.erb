@@ -1,7 +1,7 @@
 <%= render 'partials/header' %>
 <%= stylesheet_link_tag "home", "data-turbo-track": "reload" %>
 <br>
-<h2 style="text-align:center">Edit <%= resource_name.to_s.humanize %></h2>
+<h2 style="text-align:center">Edit Profile</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -26,10 +26,7 @@
                       <%= f.label "Edit Picture" %>
                       <%= f.file_field :profile %>
                       </div>
-                      <br>
-                    <div class="author-card-details">
-                        <h5 class="author-card-name text-lg" style="text-align:center"><%= @user.username%></h5>
-                    </div>
+
                 </div>
             </div>
 
