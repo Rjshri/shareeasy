@@ -67,7 +67,7 @@
     <% Product.all.each do |product|%>
       <% unless Booking.exists?(product_id: product.id) %>
           <div class="card" style="width: 18rem;">
-            <%= image_tag product.image, class:'card-img-top' if product.image.attached? %>
+            <%= image_tag product.image, class:'card-img-top', style:"max-height:250px" if product.image.attached? %>
             <div class="card-body">
               <h5 class="card-title"><%=product.name%></h5>
               <p class="card-text"><%=product.description%>.</p>
@@ -76,9 +76,9 @@
               <li class="list-group-item"><span class="text-secondary" style="text-transform:capitalize">Price:</span> <%=product.price%> INR</li>
               <li class="list-group-item"><span class="text-secondary">Category:</span> <%= product.category%></li>
             </ul>
-            <div class="card-body" style="display:flex; justify-content:flex-end">
+            <div class="card-body" style="display:flex; justify-content:flex-end;">
               <%= link_to 'Checkout', checkout_path(user_id:current_user.id, product_id:product.id), class:"btn btn-outline-success" %>
-              <%= link_to 'Buy', new_booking_path(user_id:current_user.id, product_id:product.id) , class:'btn btn-primary mx-2' %>
+              <%# <%= link_to 'Buy', new_booking_path(user_id:current_user.id, product_id:product.id) , class:'btn btn-primary mx-2' %>
             </div>
           </div>
       <%end%>
